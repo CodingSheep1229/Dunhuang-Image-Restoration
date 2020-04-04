@@ -1,16 +1,27 @@
 # Dunhuang-Image-Restoration
 ## final project of NTU DLCV fall2019
-Dunhuang Image Restoration using partial convolution and SSIM loss
+Dunhuang Image Restoration using partial convolution and SSIM loss \
+by 鄭揚，李信穎，唐瑋廷
 
 ![illustration](fig_0.png)
 
 ## Introduction
-In this challenge, you are asked to restore damaged paintings, where you can take advantage of the knowledge and skill learned in DLCV lessons. This is a " **Image Inpainting** " task, you are encouraged to search for related resources on your own. 
+In this project, we employed NVIDIA’s Partial Convolutions with an U-Net architecture and structural similarity loss function to restore incomplete Dunhuang images. The model surpassed baseline with quantitative evaluation and produced high-quality restoration result.
 
 The original challenge website is provided [here](http://www.eheritage-ws.org/).
 
+## Result
+
+ |Score|value|
+ |---|---|
+ |MSE| 35.153|
+ |SSIM| 0.805|
+
+![illustration](result.png)
+
+
 ## Dataset 
-To get the dataset for this challenge, please use the following command: 
+To get the dataset for this project, please use the following command: 
 ```
 bash download.sh
 ```
@@ -34,7 +45,7 @@ CUDA_VISIBLE_DEVICES=GPU_NUMBER bash final.sh $1 $2
 * `$2` is the folder (e.g. `Data_Challenge2/pred/`) to save the restored images (predicted images). If the input image is name xxx.jpg, the outputed image will be name xxx.jpg. 
 
 ### Evaluation
-We evaluate the quality of your restored images with Mean Square Error (MSE) and Structural Similarity Index (SSIM). We provide the script (`evaluate.py`) to evaluate the performance of your model. You can use the following command to evaluate your model.
+We evaluate the quality of restored images with Mean Square Error (MSE) and Structural Similarity Index (SSIM).
 ```
 python3 evaluate.py -g $1 -p $2
 ```
